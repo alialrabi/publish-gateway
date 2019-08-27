@@ -1,0 +1,214 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-broadcast-heading" jhiTranslate="gatewayApp.coreBroadcast.home.createOrEditLabel">Create or edit
+                a Broadcast</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.fromname"
+                        for="field_fromname">Fromname</label>
+                    <input type="text" class="form-control" name="fromname" id="field_fromname"
+                        formControlName="fromname" />
+                    <div
+                        *ngIf="editForm.get('fromname').invalid && (editForm.get('fromname').dirty || editForm.get('fromname').touched)">
+                        <small class="form-text text-danger" *ngIf="editForm.get('fromname').errors.required"
+                            jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.fromemail"
+                        for="field_fromemail">Fromemail</label>
+                    <input type="text" class="form-control" name="fromemail" id="field_fromemail"
+                        formControlName="fromemail" />
+                    <div
+                        *ngIf="editForm.get('fromemail').invalid && (editForm.get('fromemail').dirty || editForm.get('fromemail').touched)">
+                        <small class="form-text text-danger" *ngIf="editForm.get('fromemail').errors.required"
+                            jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.title"
+                        for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title" formControlName="title" />
+                    <div
+                        *ngIf="editForm.get('title').invalid && (editForm.get('title').dirty || editForm.get('title').touched)">
+                        <small class="form-text text-danger" *ngIf="editForm.get('title').errors.required"
+                            jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.audiencejson"
+                        for="field_audiencejson">Audiencejson</label>
+                    <input type="text" class="form-control" name="audiencejson" id="field_audiencejson"
+                        formControlName="audiencejson" />
+                    <div
+                        *ngIf="editForm.get('audiencejson').invalid && (editForm.get('audiencejson').dirty || editForm.get('audiencejson').touched)">
+                        <small class="form-text text-danger" *ngIf="editForm.get('audiencejson').errors.maxlength"
+                            jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 1000 }">
+                            This field cannot be longer than 1000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.contenthtml"
+                        for="field_contenthtml">Contenthtml</label>
+                    <textarea type="text" class="form-control" name="contenthtml" id="field_contenthtml"
+                        formControlName="contenthtml"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.deliveryDateTime"
+                        for="field_deliveryDateTime">Delivery Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_deliveryDateTime" type="datetime-local" class="form-control"
+                            name="deliveryDateTime" formControlName="deliveryDateTime" placeholder="YYYY-MM-DD HH:mm" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.tags"
+                        for="field_tags">Tags</label>
+                    <input type="text" class="form-control" name="tags" id="field_tags" formControlName="tags" />
+                    <div
+                        *ngIf="editForm.get('tags').invalid && (editForm.get('tags').dirty || editForm.get('tags').touched)">
+                        <small class="form-text text-danger" *ngIf="editForm.get('tags').errors.maxlength"
+                            jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 500 }">
+                            This field cannot be longer than 500 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.status"
+                        for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status" formControlName="status" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.createdByUser"
+                        for="field_createdByUser">Created By User</label>
+                    <input type="text" class="form-control" name="createdByUser" id="field_createdByUser"
+                        formControlName="createdByUser" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.createdDateTime"
+                        for="field_createdDateTime">Created Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_createdDateTime" type="datetime-local" class="form-control"
+                            name="createdDateTime" formControlName="createdDateTime" placeholder="YYYY-MM-DD HH:mm" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.updatedByUser"
+                        for="field_updatedByUser">Updated By User</label>
+                    <input type="text" class="form-control" name="updatedByUser" id="field_updatedByUser"
+                        formControlName="updatedByUser" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.updatedDateTime"
+                        for="field_updatedDateTime">Updated Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_updatedDateTime" type="datetime-local" class="form-control"
+                            name="updatedDateTime" formControlName="updatedDateTime" placeholder="YYYY-MM-DD HH:mm" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.domain"
+                        for="field_domain">Domain</label>
+                    <input type="text" class="form-control" name="domain" id="field_domain" formControlName="domain" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.publishondatetime"
+                        for="field_publishondatetime">Publishondatetime</label>
+                    <div class="d-flex">
+                        <input id="field_publishondatetime" type="datetime-local" class="form-control"
+                            name="publishondatetime" formControlName="publishondatetime"
+                            placeholder="YYYY-MM-DD HH:mm" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.publishdatetime"
+                        for="field_publishdatetime">Publishdatetime</label>
+                    <div class="d-flex">
+                        <input id="field_publishdatetime" type="datetime-local" class="form-control"
+                            name="publishdatetime" formControlName="publishdatetime" placeholder="YYYY-MM-DD HH:mm" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.image"
+                        for="field_image">Image</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('imageContentType').value + ';base64,' + editForm.get('image').value"
+                            style="max-height: 100px;" *ngIf="editForm.get('image').value" alt="broadcast image" />
+                        <div *ngIf="editForm.get('image').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('imageContentType').value}},
+                                {{byteSize(editForm.get('image').value)}}</span>
+                            <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')"
+                                class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_image" (change)="setFileData($event, 'image', true)"
+                            accept="image/*" jhiTranslate="entity.action.addimage" />
+                    </div>
+                    <input type="hidden" class="form-control" name="image" id="field_image" formControlName="image" />
+                    <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                        formControlName="imageContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.contentjson"
+                        for="field_contentjson">Contentjson</label>
+                    <input type="text" class="form-control" name="contentjson" id="field_contentjson"
+                        formControlName="contentjson" />
+                    <div
+                        *ngIf="editForm.get('contentjson').invalid && (editForm.get('contentjson').dirty || editForm.get('contentjson').touched)">
+                        <small class="form-text text-danger" *ngIf="editForm.get('contentjson').errors.maxlength"
+                            jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 5000 }">
+                            This field cannot be longer than 5000 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreBroadcast.channel"
+                        for="field_channel">Channel</label>
+                    <select class="form-control" id="field_channel" name="channel" formControlName="channel">
+                        <option *ngIf="!editForm.get('channel').value" [ngValue]="null" selected></option>
+                        <option
+                            [ngValue]="channelOption.id === editForm.get('channel').value?.id ? editForm.get('channel').value : channelOption"
+                            *ngFor="let channelOption of channels; trackBy: trackChannelById">{{channelOption.name}}
+                        </option>
+                    </select>
+                </div>
+                <div
+                    *ngIf="editForm.get('channel').invalid && (editForm.get('channel').dirty || editForm.get('channel').touched)">
+                    <small class="form-text text-danger" *ngIf="editForm.get('channel').errors.required"
+                        jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving"
+                    class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+
+                <button type="button" id="publish" (click)="share()" [disabled]="editForm.invalid || isSaving"
+                    class="btn btn-success">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Publish</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

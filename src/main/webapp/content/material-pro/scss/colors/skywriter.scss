@@ -1,0 +1,178 @@
+/*
+    Skywriter custom theme is defined here.
+*/
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,600,700');
+@import '../variable.scss';
+
+.breadcrumb {
+  a {
+    color: $secondary-800;
+  }
+
+  a:focus,
+  a:hover {
+    color: $secondary-600;
+  }
+}
+
+a {
+  color: $primary-600;
+}
+
+a:focus,
+a:hover {
+  color: $primary-500;
+  text-decoration: underline;
+}
+
+// Buttons
+.btn-success {
+  color: $black;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+// Check boxes
+// Check mark should be black on checked state
+.custom-checkbox .custom-control-input:checked ~ .custom-control-indicator {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%2328363d' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+/*******************
+/* Top bar
+*******************/
+
+.topbar {
+  background: $topbar;
+
+  .navbar-header {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .top-navbar .navbar-header .navbar-brand .dark-logo {
+    display: none;
+  }
+  .top-navbar .navbar-header .navbar-brand .light-logo {
+    display: inline-block;
+    height: 50px;
+  }
+
+  // Mini-sidebar icon hidden by default
+  .navbar-brand .brand-icon {
+    display: none;
+  }
+
+  .navbar-light .navbar-nav .nav-item > {
+    a.nav-link {
+      color: $white !important;
+
+      &:hover,
+      &:focus {
+        color: rgba(255, 255, 255, 0.8) !important;
+      }
+    }
+  }
+}
+
+// Mini icon shows when mini-sidebar is showing
+.mini-sidebar .topbar .navbar-brand .brand-icon {
+  display: inline-block;
+  height: 50px;
+}
+
+/*******************
+/* General Elements
+*******************/
+
+a.link {
+  &:hover,
+  &:focus {
+    color: $themecolor !important;
+  }
+}
+
+.bg-theme {
+  background-color: $themecolor !important;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: $themecolor;
+  border-color: $themecolor;
+}
+
+.right-sidebar {
+  .rpanel-title {
+    background: $themecolor;
+  }
+}
+
+.stylish-table {
+  tbody tr {
+    &:hover,
+    &.active {
+      border-left: 4px solid $themecolor;
+    }
+  }
+}
+
+.text-themecolor {
+  color: $themecolor !important;
+}
+
+.profile-tab,
+.customtab {
+  li {
+    a.nav-link {
+      &.active {
+        border-bottom: 2px solid $themecolor;
+        color: $themecolor;
+      }
+      &:hover {
+        color: $themecolor;
+      }
+    }
+  }
+}
+
+/*******************
+/* Buttons
+*******************/
+
+.btn-themecolor,
+.btn-themecolor.disabled {
+  background: $themecolor;
+  color: $white;
+  border: 1px solid $themecolor;
+
+  &:hover {
+    background: $themecolor;
+    opacity: 0.7;
+    border: 1px solid $themecolor;
+  }
+  &.active,
+  &:focus {
+    background: $themecolor-dark;
+  }
+}
+
+/*******************
+/* sidebar navigation
+*******************/
+.sidebar-nav {
+  ul li a.active {
+    color: $primary;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+    }
+  }
+}

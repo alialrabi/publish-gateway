@@ -1,0 +1,38 @@
+{
+  "gatewayApp": {
+    "coreChannel": {
+      "home": {
+        "title": "Channels",
+        "createLabel": "Create a new Channel",
+        "createOrEditLabel": "Create or edit a Channel",
+        "search": "Search for Channel",
+        "notFound": "No Channels found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Channel {{ id }}?"
+      },
+      "detail": {
+        "title": "Channel"
+      },
+      "name": "Name",
+      "description": "Description",
+      "type": "Type",
+      "channeltype": "Channeltype",
+      "details": "Details",
+      "createdByUser": "Created By User",
+      "createdDateTime": "Created Date Time",
+      "updatedByUser": "Updated By User",
+      "updatedDateTime": "Updated Date Time",
+      "status": "Status",
+      "domain": "Domain",
+      "broadcast": "Broadcast"
+    }
+  },
+  "coreApp": {
+    "coreChannel": {
+      "created": "A new Channel is created with identifier {{ param }}",
+      "updated": "A Channel is updated with identifier {{ param }}",
+      "deleted": "A Channel is deleted with identifier {{ param }}"
+    }
+  }
+}

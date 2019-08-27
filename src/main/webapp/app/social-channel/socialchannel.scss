@@ -1,0 +1,108 @@
+.spacer {
+  flex: 1 1 auto !important;
+}
+.value-container {
+  list-style-type: none;
+  min-width: 73px;
+  border: 1px solid #dae2ea;
+  background: #f8faff;
+  color: #7c9eb2;
+  padding: 10px 10px;
+  margin: 10px;
+}
+.stepper-component__nav {
+  display: block;
+}
+.stepper-component__panel-content {
+  margin-top: 10px;
+}
+ol li {
+  list-style-type: none;
+  div {
+    list-style-type: none;
+    min-width: 73px;
+    border: 1px solid #dae2ea;
+    background: #f8faff;
+    color: #7c9eb2;
+    padding: 10px 10px;
+    margin: 10px;
+    a {
+      padding: 6px 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      border-radius: 3px;
+      margin-right: 8px;
+      .fa {
+        color: white;
+      }
+    }
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////
+.contact-component {
+  &__fab-container {
+    bottom: 0;
+    left: 0;
+    margin-top: 25px;
+    padding: 12px 48px 48px 12px;
+    right: 0;
+    text-align: right;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+  }
+
+  &__no-items {
+    margin: 0 auto;
+    padding: 12px;
+    text-align: center;
+    width: 560px;
+  }
+
+  &__with-items {
+    padding: 12px;
+  }
+
+  .search-box-component {
+    margin-bottom: 24px;
+  }
+}
+
+.search-box-component {
+  margin-bottom: 24px;
+}
+
+.inner-addon {
+  position: relative;
+}
+
+/* style icon */
+.inner-addon .fa {
+  position: absolute;
+  padding: 10px;
+}
+
+/* align icon */
+.left-addon .fa {
+  left: 0px;
+}
+.right-addon .fa {
+  right: 0px;
+}
+
+/* add padding  */
+.left-addon input {
+  padding-left: 35px;
+}
+.right-addon input {
+  padding-right: 35px;
+}
+
+.fa-times {
+  cursor: pointer;
+}
+
+.fa-times:hover {
+  background: #b5aead;
+}

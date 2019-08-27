@@ -1,0 +1,44 @@
+{
+  "gatewayApp": {
+    "coreBroadcast": {
+      "home": {
+        "title": "Broadcasts",
+        "createLabel": "Create a new Broadcast",
+        "createOrEditLabel": "Create or edit a Broadcast",
+        "search": "Search for Broadcast",
+        "notFound": "No Broadcasts found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Broadcast {{ id }}?"
+      },
+      "detail": {
+        "title": "Broadcast"
+      },
+      "fromname": "Fromname",
+      "fromemail": "Fromemail",
+      "title": "Title",
+      "audiencejson": "Audiencejson",
+      "contenthtml": "Contenthtml",
+      "deliveryDateTime": "Delivery Date Time",
+      "tags": "Tags",
+      "status": "Status",
+      "createdByUser": "Created By User",
+      "createdDateTime": "Created Date Time",
+      "updatedByUser": "Updated By User",
+      "updatedDateTime": "Updated Date Time",
+      "domain": "Domain",
+      "publishondatetime": "Publishondatetime",
+      "publishdatetime": "Publishdatetime",
+      "image": "Image",
+      "contentjson": "Contentjson",
+      "channel": "Channel"
+    }
+  },
+  "coreApp": {
+    "coreBroadcast": {
+      "created": "A new Broadcast is created with identifier {{ param }}",
+      "updated": "A Broadcast is updated with identifier {{ param }}",
+      "deleted": "A Broadcast is deleted with identifier {{ param }}"
+    }
+  }
+}

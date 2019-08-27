@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="channel">
+            <h2><span jhiTranslate="gatewayApp.coreChannel.detail.title">Channel</span> {{channel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.coreChannel.name">Name</span></dt>
+                <dd>
+                    <span>{{channel.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.description">Description</span></dt>
+                <dd>
+                    <span>{{channel.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.type">Type</span></dt>
+                <dd>
+                    <span>{{channel.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.channeltype">Channeltype</span></dt>
+                <dd>
+                    <span>{{channel.channeltype}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.details">Details</span></dt>
+                <dd>
+                    <span>{{channel.details}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.createdByUser">Created By User</span></dt>
+                <dd>
+                    <span>{{channel.createdByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.createdDateTime">Created Date Time</span></dt>
+                <dd>
+                    <span>{{channel.createdDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.updatedByUser">Updated By User</span></dt>
+                <dd>
+                    <span>{{channel.updatedByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.updatedDateTime">Updated Date Time</span></dt>
+                <dd>
+                    <span>{{channel.updatedDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.status">Status</span></dt>
+                <dd>
+                    <span>{{channel.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreChannel.domain">Domain</span></dt>
+                <dd>
+                    <span>{{channel.domain}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/channel-publish', channel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

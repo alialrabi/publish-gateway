@@ -1,0 +1,105 @@
+<div class="row page-titles">
+    <div class="col-md-5 col-8 align-self-center">
+        <h3 class="text-themecolor m-b-0 m-t-0"></h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)" routerLink="/">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)" routerLink="/channel-publish">Channels</a>
+            </li>
+
+            <li *ngIf="mode == 'new'" class="breadcrumb-item active">New</li>
+            <li *ngIf="mode == 'edit'" class="breadcrumb-item active">Edit</li>
+        </ol>
+    </div>
+</div>
+
+<div class="stepper-component" id="stepper">
+    <ngx-loading class="pt-5" [show]="
+        loading"
+        [config]="{ backdropBackgroundColour: 'rgba(255,255,255,0.3)',  primaryColour: '#292b2c', secondaryColour: '#292b2c', tertiaryColour: '#292b2c' ,backdropBorderRadius: '3px' }">
+    </ngx-loading>
+    <form autocomplete="off">
+        <div class="stepper-component__content">
+            <h3 class="stepper-component__panel-title">Channel Summary</h3>
+            <div class="stepper-component__nav d-flex flex-row-reverse">
+                <button data-direction="finish" style="margin-top: -30px;" class="btn btn-info" type="submit"
+                    id="save-list" (click)="save()">
+                    FINISH
+                </button>
+            </div>
+            <div style="margin-top: 10px;" class="stepper-component__panel-content">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div [formGroup]="pageForm" class="form-group">
+                            <!-- <small class="form-text text-danger required-error hide">
+                                    ** Insert all required fields First
+                                </small> -->
+                            <label class="control-label" for="siteName">
+                                <h4>Name</h4>
+                            </label>
+                            <input class="form-control " autocomplete="off" required
+                                [style.border]="((!pageForm.get('channelName').valid&&pageForm.get('channelName').dirty))? '1px solid red': ' ' "
+                                type="text" [(ngModel)]="channel.name" formControlName="channelName" #name
+                                id="channelName" name="channelName" />
+
+                            <div style="width: 600px;"
+                                *ngIf="((showNameError&&!pageForm.get('channelName').valid)||(!pageForm.get('channelName').valid&&pageForm.get('channelName').dirty))">
+                                <small style="font-size: 13px;color:red" class="form-control-feedback">
+                                    Social channel name is required
+                                </small>
+                            </div>
+                            <!-- style="text-transform: lowercase" -->
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">
+                                <h4>Description</h4>
+                            </label>
+                            <textarea class="form-control" name="description" id="description"
+                                [(ngModel)]="channel.description" maxlength="10000"
+                                rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">
+                                <h4>Authentication</h4>
+                            </label><br>
+                            <button *ngIf="displayLgin('FACEBOOK')" (click)="socialLogin('FACEBOOK')"
+                                class="btn btn-facebook my-1" style="width: 60%">
+                                <i class="fab fa-facebook-f"></i> Login With Facebook</button><br />
+                            <button *ngIf="displayLgin('TWITTER')" (click)="socialLogin('TWITTER')"
+                                class="btn btn-twitter my-1" style="width: 60%">
+                                <i class="fab fa-twitter mr-1"></i> Login With Twitter
+                            </button>
+                            <br />
+                            <button *ngIf="displayLgin('LINKEDIN')" (click)="socialLogin('LINKEDIN')"
+                                class="btn btn-linkedin my-1" style="width: 60%">
+                                <i class="fab fa-linkedin-in mr-1"></i> Login With Linkedin
+                            </button>
+                            <div class="col-md-4"></div>
+
+                            <div style="width: 600px;" *ngIf="showtypeError">
+                                <small style="font-size: 13px;color:red" class="form-control-feedback"> Social Type
+                                    is required
+
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <!--<div class="stepper-component__nav d-flex flex-row-reverse">-->
+            <!--<button data-direction="finish" class="btn btn-info" type="submit" id="save-list" (click)="save()">-->
+            <!--FINISH-->
+            <!--</button>-->
+            <!--</div>-->
+        </div>
+    </form>
+</div>

@@ -19,6 +19,19 @@ import { GatewayEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { SocialChannelModule } from './social-channel/social-channel.module';
+import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+
+let config = new AuthServiceConfig([
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('531160574073603')
+  }
+]);
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   imports: [
@@ -35,9 +48,11 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     GatewayCoreModule,
     GatewayHomeModule,
     GatewayAccountModule,
+    SocialChannelModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GatewayEntityModule,
-    GatewayAppRoutingModule
+    GatewayAppRoutingModule,
+    SocialLoginModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [
@@ -55,6 +70,10 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
       provide: HTTP_INTERCEPTORS,
       useClass: NotificationInterceptor,
       multi: true
+    },
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
     }
   ],
   bootstrap: [JhiMainComponent]

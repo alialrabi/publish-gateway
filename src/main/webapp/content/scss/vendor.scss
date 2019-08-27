@@ -12,3 +12,20 @@ eg $input-color: red;
 @import 'src/main/webapp/content/scss/rtl.scss';
 
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */
+
+// bootrap materials
+// Import all Material Pro theme styles
+@import '../material-pro/scss/style';
+// Import custom Skywriter colors for Material Pro
+@import '../material-pro/scss/colors/skywriter';
+// FontAwesome 5
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+// bootrap materials
+@import '../material-pro/scss/icons/simple-line-icons/css/simple-line-icons.css';
+@import '../material-pro/scss/icons/weather-icons/css/weather-icons.min.css';
+@import '../material-pro/scss/icons/linea-icons/linea.css';
+@import '../material-pro/scss/icons/themify-icons/themify-icons.css';
+@import '../material-pro/scss/icons/flag-icon-css/flag-icon.min.css';
+@import '../material-pro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css';
+@import '../material-pro/css/spinners.css';
+@import '../material-pro/css/animate.css';

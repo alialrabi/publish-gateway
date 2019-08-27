@@ -1,0 +1,175 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-channel-publish-heading" jhiTranslate="gatewayApp.coreChannel.home.createOrEditLabel">Create or edit a Channel</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name').invalid && (editForm.get('name').dirty || editForm.get('name').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description').invalid && (editForm.get('description').dirty || editForm.get('description').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.type" for="field_type">Type</label>
+                    <input type="text" class="form-control" name="type" id="field_type"
+                           formControlName="type"/>
+                    <div *ngIf="editForm.get('type').invalid && (editForm.get('type').dirty || editForm.get('type').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('type').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.channeltype" for="field_channeltype">Channeltype</label>
+                    <input type="text" class="form-control" name="channeltype" id="field_channeltype"
+                           formControlName="channeltype"/>
+                    <div *ngIf="editForm.get('channeltype').invalid && (editForm.get('channeltype').dirty || editForm.get('channeltype').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('channeltype').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.details" for="field_details">Details</label>
+                    <input type="text" class="form-control" name="details" id="field_details"
+                           formControlName="details"/>
+                    <div *ngIf="editForm.get('details').invalid && (editForm.get('details').dirty || editForm.get('details').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('details').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10000 }">
+                        This field cannot be longer than 10000 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.createdByUser" for="field_createdByUser">Created By User</label>
+                    <input type="text" class="form-control" name="createdByUser" id="field_createdByUser"
+                           formControlName="createdByUser"/>
+                    <div *ngIf="editForm.get('createdByUser').invalid && (editForm.get('createdByUser').dirty || editForm.get('createdByUser').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdByUser').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdByUser').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.createdDateTime" for="field_createdDateTime">Created Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_createdDateTime" type="datetime-local" class="form-control" name="createdDateTime" formControlName="createdDateTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('createdDateTime').invalid && (editForm.get('createdDateTime').dirty || editForm.get('createdDateTime').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('createdDateTime').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('createdDateTime').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.updatedByUser" for="field_updatedByUser">Updated By User</label>
+                    <input type="text" class="form-control" name="updatedByUser" id="field_updatedByUser"
+                           formControlName="updatedByUser"/>
+                    <div *ngIf="editForm.get('updatedByUser').invalid && (editForm.get('updatedByUser').dirty || editForm.get('updatedByUser').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updatedByUser').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updatedByUser').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.updatedDateTime" for="field_updatedDateTime">Updated Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_updatedDateTime" type="datetime-local" class="form-control" name="updatedDateTime" formControlName="updatedDateTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('updatedDateTime').invalid && (editForm.get('updatedDateTime').dirty || editForm.get('updatedDateTime').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('updatedDateTime').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('updatedDateTime').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                    <div *ngIf="editForm.get('status').invalid && (editForm.get('status').dirty || editForm.get('status').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreChannel.domain" for="field_domain">Domain</label>
+                    <input type="text" class="form-control" name="domain" id="field_domain"
+                           formControlName="domain"/>
+                    <div *ngIf="editForm.get('domain').invalid && (editForm.get('domain').dirty || editForm.get('domain').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('domain').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('domain').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

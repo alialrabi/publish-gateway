@@ -1,0 +1,102 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="broadcast">
+            <h2><span jhiTranslate="gatewayApp.coreBroadcast.detail.title">Broadcast</span> {{broadcast.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.fromname">Fromname</span></dt>
+                <dd>
+                    <span>{{broadcast.fromname}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.fromemail">Fromemail</span></dt>
+                <dd>
+                    <span>{{broadcast.fromemail}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.title">Title</span></dt>
+                <dd>
+                    <span>{{broadcast.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.audiencejson">Audiencejson</span></dt>
+                <dd>
+                    <span>{{broadcast.audiencejson}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.contenthtml">Contenthtml</span></dt>
+                <dd>
+                    <span>{{broadcast.contenthtml}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.deliveryDateTime">Delivery Date Time</span></dt>
+                <dd>
+                    <span>{{broadcast.deliveryDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.tags">Tags</span></dt>
+                <dd>
+                    <span>{{broadcast.tags}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.status">Status</span></dt>
+                <dd>
+                    <span>{{broadcast.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.createdByUser">Created By User</span></dt>
+                <dd>
+                    <span>{{broadcast.createdByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.createdDateTime">Created Date Time</span></dt>
+                <dd>
+                    <span>{{broadcast.createdDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.updatedByUser">Updated By User</span></dt>
+                <dd>
+                    <span>{{broadcast.updatedByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.updatedDateTime">Updated Date Time</span></dt>
+                <dd>
+                    <span>{{broadcast.updatedDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.domain">Domain</span></dt>
+                <dd>
+                    <span>{{broadcast.domain}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.publishondatetime">Publishondatetime</span></dt>
+                <dd>
+                    <span>{{broadcast.publishondatetime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.publishdatetime">Publishdatetime</span></dt>
+                <dd>
+                    <span>{{broadcast.publishdatetime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="broadcast.image">
+                        <a (click)="openFile(broadcast.imageContentType, broadcast.image)">
+                            <img [src]="'data:' + broadcast.imageContentType + ';base64,' + broadcast.image" style="max-width: 100%;" alt="broadcast image"/>
+                        </a>
+                        {{broadcast.imageContentType}}, {{byteSize(broadcast.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.contentjson">Contentjson</span></dt>
+                <dd>
+                    <span>{{broadcast.contentjson}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreBroadcast.channel">Channel</span></dt>
+                <dd>
+                    <div *ngIf="broadcast.channel">
+                        <a [routerLink]="['/channel-publish', broadcast.channel?.id, 'view']">{{broadcast.channel?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/broadcast', broadcast.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
