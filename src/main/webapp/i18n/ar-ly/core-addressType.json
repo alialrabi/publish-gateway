@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "AddressType": {
+      "null": "",
+      "WORK": "WORK",
+      "HOME": "HOME"
+    }
+  }
+}

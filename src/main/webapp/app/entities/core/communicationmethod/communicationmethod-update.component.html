@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-communicationmethod-heading" jhiTranslate="gatewayApp.coreCommunicationmethod.home.createOrEditLabel">Create or edit a Communicationmethod</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.valueString" for="field_valueString">Value String</label>
+                    <input type="text" class="form-control" name="valueString" id="field_valueString"
+                           formControlName="valueString"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.countryCode" for="field_countryCode">Country Code</label>
+                    <input type="text" class="form-control" name="countryCode" id="field_countryCode"
+                           formControlName="countryCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.createdByUser" for="field_createdByUser">Created By User</label>
+                    <input type="text" class="form-control" name="createdByUser" id="field_createdByUser"
+                           formControlName="createdByUser"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.createdDateTime" for="field_createdDateTime">Created Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_createdDateTime" type="datetime-local" class="form-control" name="createdDateTime" formControlName="createdDateTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.updatedByUser" for="field_updatedByUser">Updated By User</label>
+                    <input type="text" class="form-control" name="updatedByUser" id="field_updatedByUser"
+                           formControlName="updatedByUser"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.updatedDateTime" for="field_updatedDateTime">Updated Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_updatedDateTime" type="datetime-local" class="form-control" name="updatedDateTime" formControlName="updatedDateTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.domain" for="field_domain">Domain</label>
+                    <input type="text" class="form-control" name="domain" id="field_domain"
+                           formControlName="domain"/>
+                    <div *ngIf="editForm.get('domain').invalid && (editForm.get('domain').dirty || editForm.get('domain').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('domain').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreCommunicationmethod.contact" for="field_contact">Contact</label>
+                    <select class="form-control" id="field_contact" name="contact" formControlName="contact">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactOption.id === editForm.get('contact').value?.id ? editForm.get('contact').value : contactOption" *ngFor="let contactOption of contacts; trackBy: trackContactById">{{contactOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

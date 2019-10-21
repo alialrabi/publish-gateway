@@ -1,0 +1,39 @@
+{
+  "gatewayApp": {
+    "coreAddress": {
+      "home": {
+        "title": "Addresses",
+        "createLabel": "Create a new Address",
+        "createOrEditLabel": "Create or edit a Address",
+        "search": "Search for Address",
+        "notFound": "No Addresses found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Address {{ id }}?"
+      },
+      "detail": {
+        "title": "Address"
+      },
+      "address1": "Address 1",
+      "city": "City",
+      "state": "State",
+      "zipcode": "Zipcode",
+      "country": "Country",
+      "createdByUser": "Created By User",
+      "createdDateTime": "Created Date Time",
+      "updatedByUser": "Updated By User",
+      "updatedDateTime": "Updated Date Time",
+      "status": "Status",
+      "domain": "Domain",
+      "addressType": "Address Type",
+      "contact": "Contact"
+    }
+  },
+  "coreApp": {
+    "coreAddress": {
+      "created": "A new Address is created with identifier {{ param }}",
+      "updated": "A Address is updated with identifier {{ param }}",
+      "deleted": "A Address is deleted with identifier {{ param }}"
+    }
+  }
+}

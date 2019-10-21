@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="communicationmethod">
+            <h2><span jhiTranslate="gatewayApp.coreCommunicationmethod.detail.title">Communicationmethod</span> {{communicationmethod.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.valueString">Value String</span></dt>
+                <dd>
+                    <span>{{communicationmethod.valueString}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.countryCode">Country Code</span></dt>
+                <dd>
+                    <span>{{communicationmethod.countryCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.createdByUser">Created By User</span></dt>
+                <dd>
+                    <span>{{communicationmethod.createdByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.createdDateTime">Created Date Time</span></dt>
+                <dd>
+                    <span>{{communicationmethod.createdDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.updatedByUser">Updated By User</span></dt>
+                <dd>
+                    <span>{{communicationmethod.updatedByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.updatedDateTime">Updated Date Time</span></dt>
+                <dd>
+                    <span>{{communicationmethod.updatedDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.status">Status</span></dt>
+                <dd>
+                    <span>{{communicationmethod.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.domain">Domain</span></dt>
+                <dd>
+                    <span>{{communicationmethod.domain}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreCommunicationmethod.contact">Contact</span></dt>
+                <dd>
+                    <div *ngIf="communicationmethod.contact">
+                        <a [routerLink]="['/contact', communicationmethod.contact?.id, 'view']">{{communicationmethod.contact?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/communicationmethod', communicationmethod.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
