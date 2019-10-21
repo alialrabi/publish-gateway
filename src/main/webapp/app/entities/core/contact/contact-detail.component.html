@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contact">
+            <h2><span jhiTranslate="gatewayApp.coreContact.detail.title">Contact</span> {{contact.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.coreContact.nameFirst">Name First</span></dt>
+                <dd>
+                    <span>{{contact.nameFirst}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.nameLast">Name Last</span></dt>
+                <dd>
+                    <span>{{contact.nameLast}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.title">Title</span></dt>
+                <dd>
+                    <span>{{contact.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.company">Company</span></dt>
+                <dd>
+                    <span>{{contact.company}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.contactImage">Contact Image</span></dt>
+                <dd>
+                    <div *ngIf="contact.contactImage">
+                        <a (click)="openFile(contact.contactImageContentType, contact.contactImage)">
+                            <img [src]="'data:' + contact.contactImageContentType + ';base64,' + contact.contactImage" style="max-width: 100%;" alt="contact image"/>
+                        </a>
+                        {{contact.contactImageContentType}}, {{byteSize(contact.contactImage)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.contactImageContentType">Contact Image Content Type</span></dt>
+                <dd>
+                    <span>{{contact.contactImageContentType}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.createdByUser">Created By User</span></dt>
+                <dd>
+                    <span>{{contact.createdByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.createdDateTime">Created Date Time</span></dt>
+                <dd>
+                    <span>{{contact.createdDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.updatedByUser">Updated By User</span></dt>
+                <dd>
+                    <span>{{contact.updatedByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.updatedDateTime">Updated Date Time</span></dt>
+                <dd>
+                    <span>{{contact.updatedDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.status">Status</span></dt>
+                <dd>
+                    <span>{{contact.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreContact.domain">Domain</span></dt>
+                <dd>
+                    <span>{{contact.domain}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contact', contact.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

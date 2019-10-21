@@ -9,6 +9,10 @@
         "main": "Entities",
         "coreChannelPublish": "Channel",
         "coreBroadcast": "Broadcast",
+        "coreContact": "Contact",
+        "coreAddress": "Address",
+        "coreCommunicationmethod": "Communicationmethod",
+        "contact": "Contact",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

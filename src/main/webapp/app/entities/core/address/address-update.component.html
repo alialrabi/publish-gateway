@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-address-heading" jhiTranslate="gatewayApp.coreAddress.home.createOrEditLabel">Create or edit a Address</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.address1" for="field_address1">Address 1</label>
+                    <input type="text" class="form-control" name="address1" id="field_address1"
+                           formControlName="address1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.state" for="field_state">State</label>
+                    <input type="text" class="form-control" name="state" id="field_state"
+                           formControlName="state"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.zipcode" for="field_zipcode">Zipcode</label>
+                    <input type="text" class="form-control" name="zipcode" id="field_zipcode"
+                           formControlName="zipcode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.country" for="field_country">Country</label>
+                    <input type="text" class="form-control" name="country" id="field_country"
+                           formControlName="country"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.createdByUser" for="field_createdByUser">Created By User</label>
+                    <input type="text" class="form-control" name="createdByUser" id="field_createdByUser"
+                           formControlName="createdByUser"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.createdDateTime" for="field_createdDateTime">Created Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_createdDateTime" type="datetime-local" class="form-control" name="createdDateTime" formControlName="createdDateTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.updatedByUser" for="field_updatedByUser">Updated By User</label>
+                    <input type="text" class="form-control" name="updatedByUser" id="field_updatedByUser"
+                           formControlName="updatedByUser"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.updatedDateTime" for="field_updatedDateTime">Updated Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_updatedDateTime" type="datetime-local" class="form-control" name="updatedDateTime" formControlName="updatedDateTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.domain" for="field_domain">Domain</label>
+                    <input type="text" class="form-control" name="domain" id="field_domain"
+                           formControlName="domain"/>
+                    <div *ngIf="editForm.get('domain').invalid && (editForm.get('domain').dirty || editForm.get('domain').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('domain').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.addressType" for="field_addressType">Address Type</label>
+                    <select class="form-control" name="addressType" formControlName="addressType" id="field_addressType">
+                        <option value="WORK">{{'gatewayApp.AddressType.WORK' | translate}}</option>
+                        <option value="HOME">{{'gatewayApp.AddressType.HOME' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.coreAddress.contact" for="field_contact">Contact</label>
+                    <select class="form-control" id="field_contact" name="contact" formControlName="contact">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="contactOption.id === editForm.get('contact').value?.id ? editForm.get('contact').value : contactOption" *ngFor="let contactOption of contacts; trackBy: trackContactById">{{contactOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

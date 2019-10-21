@@ -1,0 +1,35 @@
+{
+  "gatewayApp": {
+    "coreCommunicationmethod": {
+      "home": {
+        "title": "Communicationmethods",
+        "createLabel": "Create a new Communicationmethod",
+        "createOrEditLabel": "Create or edit a Communicationmethod",
+        "search": "Search for Communicationmethod",
+        "notFound": "No Communicationmethods found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Communicationmethod {{ id }}?"
+      },
+      "detail": {
+        "title": "Communicationmethod"
+      },
+      "valueString": "Value String",
+      "countryCode": "Country Code",
+      "createdByUser": "Created By User",
+      "createdDateTime": "Created Date Time",
+      "updatedByUser": "Updated By User",
+      "updatedDateTime": "Updated Date Time",
+      "status": "Status",
+      "domain": "Domain",
+      "contact": "Contact"
+    }
+  },
+  "coreApp": {
+    "coreCommunicationmethod": {
+      "created": "A new Communicationmethod is created with identifier {{ param }}",
+      "updated": "A Communicationmethod is updated with identifier {{ param }}",
+      "deleted": "A Communicationmethod is deleted with identifier {{ param }}"
+    }
+  }
+}

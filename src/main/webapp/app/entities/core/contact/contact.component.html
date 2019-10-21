@@ -1,0 +1,107 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.coreContact.home.title">Contacts</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-contact" [routerLink]="['/contact/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="gatewayApp.coreContact.home.createLabel">
+            Create a new Contact
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'gatewayApp.coreContact.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="alert alert-warning" *ngIf="contacts?.length === 0">
+        <span jhiTranslate="gatewayApp.coreContact.home.notFound">No contacts found</span>
+    </div>
+    <div class="table-responsive" *ngIf="contacts?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nameFirst"><span jhiTranslate="gatewayApp.coreContact.nameFirst">Name First</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nameLast"><span jhiTranslate="gatewayApp.coreContact.nameLast">Name Last</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="title"><span jhiTranslate="gatewayApp.coreContact.title">Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="company"><span jhiTranslate="gatewayApp.coreContact.company">Company</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactImage"><span jhiTranslate="gatewayApp.coreContact.contactImage">Contact Image</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="contactImageContentType"><span jhiTranslate="gatewayApp.coreContact.contactImageContentType">Contact Image Content Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createdByUser"><span jhiTranslate="gatewayApp.coreContact.createdByUser">Created By User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createdDateTime"><span jhiTranslate="gatewayApp.coreContact.createdDateTime">Created Date Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updatedByUser"><span jhiTranslate="gatewayApp.coreContact.updatedByUser">Updated By User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updatedDateTime"><span jhiTranslate="gatewayApp.coreContact.updatedDateTime">Updated Date Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="gatewayApp.coreContact.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="domain"><span jhiTranslate="gatewayApp.coreContact.domain">Domain</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let contact of contacts ;trackBy: trackId">
+                <td><a [routerLink]="['/contact', contact.id, 'view' ]">{{contact.id}}</a></td>
+                <td>{{contact.nameFirst}}</td>
+                <td>{{contact.nameLast}}</td>
+                <td>{{contact.title}}</td>
+                <td>{{contact.company}}</td>
+                <td>
+                    <a *ngIf="contact.contactImage" (click)="openFile(contact.contactImageContentType, contact.contactImage)">
+                        <img [src]="'data:' + contact.contactImageContentType + ';base64,' + contact.contactImage" style="max-height: 30px;" alt="contact image"/>
+                    </a>
+                    <span *ngIf="contact.contactImage">{{contact.contactImageContentType}}, {{byteSize(contact.contactImage)}}</span>
+                </td>
+                <td>{{contact.contactImageContentType}}</td>
+                <td>{{contact.createdByUser}}</td>
+                <td>{{contact.createdDateTime | date:'medium'}}</td>
+                <td>{{contact.updatedByUser}}</td>
+                <td>{{contact.updatedDateTime | date:'medium'}}</td>
+                <td>{{contact.status}}</td>
+                <td>{{contact.domain}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/contact', contact.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/contact', contact.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/contact', { outlets: { popup: contact.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="contacts?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

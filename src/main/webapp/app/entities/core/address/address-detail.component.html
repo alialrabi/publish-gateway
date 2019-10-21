@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="address">
+            <h2><span jhiTranslate="gatewayApp.coreAddress.detail.title">Address</span> {{address.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.coreAddress.address1">Address 1</span></dt>
+                <dd>
+                    <span>{{address.address1}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.city">City</span></dt>
+                <dd>
+                    <span>{{address.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.state">State</span></dt>
+                <dd>
+                    <span>{{address.state}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.zipcode">Zipcode</span></dt>
+                <dd>
+                    <span>{{address.zipcode}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.country">Country</span></dt>
+                <dd>
+                    <span>{{address.country}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.createdByUser">Created By User</span></dt>
+                <dd>
+                    <span>{{address.createdByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.createdDateTime">Created Date Time</span></dt>
+                <dd>
+                    <span>{{address.createdDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.updatedByUser">Updated By User</span></dt>
+                <dd>
+                    <span>{{address.updatedByUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.updatedDateTime">Updated Date Time</span></dt>
+                <dd>
+                    <span>{{address.updatedDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.status">Status</span></dt>
+                <dd>
+                    <span>{{address.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.domain">Domain</span></dt>
+                <dd>
+                    <span>{{address.domain}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.addressType">Address Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.AddressType.' + address.addressType}}">{{address.addressType}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.coreAddress.contact">Contact</span></dt>
+                <dd>
+                    <div *ngIf="address.contact">
+                        <a [routerLink]="['/contact', address.contact?.id, 'view']">{{address.contact?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/address', address.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
