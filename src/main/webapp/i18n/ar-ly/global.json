@@ -41,6 +41,8 @@
       "language": "اللغة"
     },
     "form": {
+      "domain.label": "اسم المنظومه",
+      "domain.placeholder": "اسم المنظومه",
       "username.label": "اسم المستخدم",
       "username.placeholder": "إسم المستخدم الخاص بك",
       "currentpassword.label": "Current password",
@@ -84,6 +86,10 @@
           "invalid": "بريدك الالكتروني خاطئ.",
           "minlength": "البريد اﻹلكتروني لا يمكن أن يكون اقل 4 احرف.",
           "maxlength": "البريد اﻹلكتروني لا يمكن أن يكون اكثر من 50 حرفا."
+        },
+        "domain": {
+          "required": "اسم المنظومه مطلوب",
+          "invalid": "اسم المنظومه خاطئ"
         }
       }
     },

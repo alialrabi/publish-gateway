@@ -13,9 +13,10 @@ import {
   SettingsComponent,
   accountState
 } from './';
+import { DomainModule } from './domain/domain.module';
 
 @NgModule({
-  imports: [GatewaySharedModule, RouterModule.forChild(accountState)],
+  imports: [GatewaySharedModule, DomainModule, RouterModule.forChild(accountState)],
   declarations: [
     ActivateComponent,
     RegisterComponent,
