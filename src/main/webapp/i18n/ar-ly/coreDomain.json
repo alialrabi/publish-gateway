@@ -1,0 +1,31 @@
+{
+  "gatewayApp": {
+    "coreDomain": {
+      "home": {
+        "title": "Domains",
+        "createLabel": "Create a new Contact",
+        "createOrEditLabel": "Create or edit a Contact",
+        "search": "Search for Contact",
+        "notFound": "No Domains found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Contact {{ id }}?"
+      },
+      "detail": {
+        "title": "Contact"
+      },
+      "nameFirst": "Name First",
+      "nameLast": "Name Last",
+      "title": "Title",
+      "company": "Company",
+      "contactImage": "Contact Image",
+      "contactImageContentType": "Contact Image Content Type",
+      "createdByUser": "Created By User",
+      "createdDateTime": "Created Date Time",
+      "updatedByUser": "Updated By User",
+      "updatedDateTime": "Updated Date Time",
+      "status": "Status",
+      "domain": "Domain"
+    }
+  }
+}
