@@ -208,6 +208,11 @@
                     class="btn btn-success">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Publish</span>
                 </button>
+
+                <button type="button" id="load" (click)="loadComments()" [disabled]="editForm.invalid || isSaving"
+                    class="btn btn-success">
+                    <fa-icon [icon]="'load'"></fa-icon>&nbsp;<span>Load Comments</span>
+                </button>
             </div>
         </form>
     </div>

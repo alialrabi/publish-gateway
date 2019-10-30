@@ -136,7 +136,7 @@ export class NewSocialChannelComponent implements OnInit {
     this.titleService.setTitle('Skywriter');
 
     // tslint:disable-next-line:forin
-    for (let item in SocialChannelTypeEnum) {
+    for (const item in SocialChannelTypeEnum) {
       this.socials = { selected: false, name: '' };
       if (isNaN(Number(item))) {
         this.socials.name = item;
@@ -279,7 +279,7 @@ export class NewSocialChannelComponent implements OnInit {
           var checkInterval = setInterval(function() {
             try {
               var currentLoc = twitterPopup.location.href;
-              // console.log(currentLoc + ' ' + twitterPopup.location.host);
+              //console.log(currentLoc + ' ' + twitterPopup.location.host);
 
               if (twitterPopup.closed) {
                 that.loading = false;
@@ -298,11 +298,11 @@ export class NewSocialChannelComponent implements OnInit {
         },
         err => {
           that.loading = false;
-          // console.log(err);
+          //console.log(err);
         }
       );
     } catch (e) {
-      // console.log("==== " + e);
+      //console.log("==== " + e);
     }
   }
 

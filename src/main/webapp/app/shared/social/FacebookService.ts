@@ -7,7 +7,7 @@ import { Facebook } from '../model/Facebook.model';
 import { ISocial } from './ISocial';
 @Injectable({ providedIn: 'root' })
 export class FacebookService implements ISocial {
-  resourceUrl = SERVER_API_URL + 'services/core/api/social';
+  resourceUrl = SERVER_API_URL + 'services/publishbroadcast/api/social';
 
   constructor(private http: HttpClient, private dateUtils: JhiDateUtils, private datePipe: DatePipe) {}
 
@@ -20,5 +20,8 @@ export class FacebookService implements ISocial {
   }
   share(content: any) {
     return this.http.post(`${this.resourceUrl}/facebook/share`, content, { observe: 'response' });
+  }
+  loadComments(broadcast) {
+    return this.http.post(`${this.resourceUrl}/facebook/comments`, broadcast, { observe: 'response' });
   }
 }

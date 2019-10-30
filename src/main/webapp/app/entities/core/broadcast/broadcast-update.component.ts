@@ -104,6 +104,11 @@ export class BroadcastUpdateComponent implements OnInit {
       err => console.log(err)
     );
   }
+
+  loadComments() {
+    const broadcast = this.createFromForm();
+    this.facebookService.loadComments(broadcast).subscribe(null);
+  }
   byteSize(field) {
     return this.dataUtils.byteSize(field);
   }
