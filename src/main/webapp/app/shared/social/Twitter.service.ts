@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 import { Facebook } from '../model/Facebook.model';
 import { ISocial } from './ISocial';
 @Injectable({ providedIn: 'root' })
-export class FacebookService implements ISocial {
+export class TwitterService implements ISocial {
   resourceUrl = SERVER_API_URL + 'services/publishbroadcast/api/social';
 
   constructor(private http: HttpClient, private dateUtils: JhiDateUtils, private datePipe: DatePipe) {}

@@ -14,8 +14,8 @@ type EntityArrayResponseType = HttpResponse<IBroadcast[]>;
 
 @Injectable({ providedIn: 'root' })
 export class BroadcastService {
-  public resourceUrl = SERVER_API_URL + 'services/core/api/broadcasts';
-  public resourceSearchUrl = SERVER_API_URL + 'services/core/api/_search/broadcasts';
+  public resourceUrl = SERVER_API_URL + 'services/publishbroadcast/api/broadcasts';
+  public resourceSearchUrl = SERVER_API_URL + 'services/publishbroadcast/api/_search/broadcasts';
 
   constructor(protected http: HttpClient) {}
 

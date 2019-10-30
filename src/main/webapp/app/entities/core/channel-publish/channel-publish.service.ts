@@ -14,8 +14,8 @@ type EntityArrayResponseType = HttpResponse<IChannelPublish[]>;
 
 @Injectable({ providedIn: 'root' })
 export class ChannelPublishService {
-  public resourceUrl = SERVER_API_URL + 'services/core/api/channels';
-  public resourceSearchUrl = SERVER_API_URL + 'services/core/api/_search/channels';
+  public resourceUrl = SERVER_API_URL + 'services/publishbroadcast/api/channels';
+  public resourceSearchUrl = SERVER_API_URL + 'services/publishbroadcast/api/_search/channels';
 
   constructor(protected http: HttpClient) {}
 

@@ -17,11 +17,11 @@ export type EntityResponseType = HttpResponse<SocialChannel>;
 
 @Injectable()
 export class SocialChannelService {
-  private resourceUrl = SERVER_API_URL + 'services/core/api/channels';
+  private resourceUrl = SERVER_API_URL + 'services/publishbroadcast/api/channels';
   private resourceUrlAccessToken = SERVER_API_URL + 'channel/api/getchannels';
   private resourceSearchUrl = SERVER_API_URL + 'channel/api/_search/channels';
   private findChannelByTypeAndDomain = SERVER_API_URL + 'channel/api/findchannels';
-  private composerUrl = SERVER_API_URL + 'composer/api';
+  private composerUrl = SERVER_API_URL + 'services/publishbroadcast/api/social';
 
   // CryptoJS = Crypto;
   ConsumerSecret = 'L3vw5UUSz4P5lz8b6BBnZ1a6eujU9EYpx8qftd2hEjNsSPLWl9';
