@@ -22,6 +22,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
 import { SocialChannelModule } from './social-channel/social-channel.module';
 import { SocialLoginModule, AuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import {PublishModule} from "app/publish-content";
 
 let config = new AuthServiceConfig([
   {
@@ -49,6 +50,7 @@ export function provideConfig() {
     GatewayHomeModule,
     GatewayAccountModule,
     SocialChannelModule,
+    PublishModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GatewayEntityModule,
     GatewayAppRoutingModule,
